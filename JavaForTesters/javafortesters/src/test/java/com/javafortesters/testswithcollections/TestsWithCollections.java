@@ -78,4 +78,71 @@ public class TestsWithCollections {
             System.out.print(dayOfWeek);
         }
     }
+
+    @Test
+    public void canClearACollection() {
+        ArrayList <String> daysOfWeek = new <String>ArrayList();
+        daysOfWeek.add("Monday");
+        daysOfWeek.add("Tuesday");
+        daysOfWeek.add("Wednesday");
+        daysOfWeek.add("Thursday");
+        daysOfWeek.add("Friday");
+        daysOfWeek.add("Saturday");
+        daysOfWeek.add("Sunday");
+
+        assertEquals(7, daysOfWeek.size());
+
+        daysOfWeek.clear();
+
+        assertEquals(0, daysOfWeek.size());
+        assertTrue(daysOfWeek.isEmpty());
+    }
+
+    @Test
+    public void canRemoveOneCollectionFromAnother() {
+        Collection workdays = new ArrayList();
+
+        workdays.add("Monday");
+        workdays.add("Tuesday");
+        workdays.add("Wednesday");
+        workdays.add("Thursday");
+        workdays.add("Friday");
+
+        Collection weekendDays = new ArrayList();
+        weekendDays.add("Saturday");
+        weekendDays.add("Sunday");
+
+        Collection<String> daysOfWeek = new <String>ArrayList();
+        daysOfWeek.addAll(workdays);
+        daysOfWeek.addAll(weekendDays);
+
+        assertEquals(7, daysOfWeek.size());
+
+        daysOfWeek.removeAll(weekendDays);
+
+        assertTrue(daysOfWeek.containsAll(workdays));
+        assertEquals(5, daysOfWeek.size());
+        assertFalse(daysOfWeek.containsAll(weekendDays));
+
+    }
+
+    @Test
+    public void canConvertCollectionToArray() {
+        ArrayList <String> daysOfWeek = new <String>ArrayList();
+        daysOfWeek.add("Monday");
+        daysOfWeek.add("Tuesday");
+        daysOfWeek.add("Wednesday");
+        daysOfWeek.add("Thursday");
+        daysOfWeek.add("Friday");
+        daysOfWeek.add("Saturday");
+        daysOfWeek.add("Sunday");
+
+        String[] anotherArray = new String[daysOfWeek.size()];
+        daysOfWeek.toArray(anotherArray);
+        assertEquals("Monday".length(),
+                anotherArray[0].length());
+    }
+
+
+
 }

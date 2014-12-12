@@ -47,11 +47,12 @@ public class MyFirstTest {
 
     @Test
     public void canVerifyClassField() {
-        assertEquals(ClassExample.aClassField, "a class field");
+       assertEquals(ClassExample.aClassField, "a class field");
 
-/*        ClassExample instance = new ClassExample();
+       ClassExample instance = new ClassExample();
 
-        instance.aClassField = "changed";*/
+        instance.aClassField = "changed";
+
     }
 
     @Test

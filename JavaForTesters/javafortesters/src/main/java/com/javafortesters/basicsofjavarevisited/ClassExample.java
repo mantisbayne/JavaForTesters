@@ -14,6 +14,10 @@ public class ClassExample {
         this.name = name;
     }
 
+    public ClassExample() {
+
+    }
+
     public String getName() {
         return this.name;
     }
