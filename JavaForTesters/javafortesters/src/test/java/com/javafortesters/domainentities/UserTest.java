@@ -11,11 +11,11 @@ public class UserTest {
         User user = new User();
 
         assertEquals("default username expected",
-                "mbayne",
+                "username1",
                 user.getUsername());
 
         assertEquals("default password expected",
-                "password",
+                "password1",
                 user.getPassword());
 
     }
@@ -25,17 +25,7 @@ public class UserTest {
         User user = new User();
     }
 
-    @Test
-    public void canConstructWithUsernameAndPassword() {
-        User user = new User("admin", "pA55w0rD");
-        assertEquals("given username expected",
-                "admin",
-                user.getUsername());
 
-        assertEquals("given password expected",
-                "pA55w0rD",
-                user.getPassword());
-    }
 
     @Test
     public void canSetUsernameAndPasswordAfterConstructed() {
@@ -52,4 +42,9 @@ public class UserTest {
                 user.getUsername());
     }
 
+    @Test
+    public void aUserHasNormalPermissions() {
+        User aUser = new User();
+        assertEquals("Normal", aUser.getPermission());
+    }
 }
